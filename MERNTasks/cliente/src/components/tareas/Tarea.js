@@ -25,7 +25,7 @@ const { proyecto } = proyectosContexst;
       tarea.estado = false
     }
     else{
-      tarea.estado = tarea
+      tarea.estado = true
       
     }
     actualizarTarea(tarea)
@@ -44,7 +44,7 @@ const { proyecto } = proyectosContexst;
             Completo
           </button>
         ) : (
-          <button type="button" className="Incompleto" onClick={() => cambiaEstado(tarea)} >
+          <button type="button" className="incompleto" onClick={() => cambiaEstado(tarea)} >
             Incompleto
           </button>
         )}

@@ -3,6 +3,7 @@ const Proyecto = require("../models/Proyecto");
 const { validationResult } = require("express-validator");
 //crea una nueva tarea
 exports.crearTarea = async (req, res) => {
+
   //revisar si hay errores
   const errores = validationResult(req);
   if (!errores.isEmpty()) {
@@ -47,7 +48,7 @@ exports.obtenerTareas = async (req, res) => {
       return res.status(401).json({ msg: "no autorizado" });
     }
     //obtener las tareas por proyecto
-    const tareas = await Tarea.find({ proyecto });
+    const tareas = await Tarea.find({ proyecto }).sort({creado: -1});
     res.json({ tareas });
   } catch (error) {
     console.log(error);
